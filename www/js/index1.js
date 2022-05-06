@@ -22,6 +22,7 @@ function getPosition() {
    function onSuccess(position) {
       userlatitude = position.coords.latitude;
       userlongitude = position.coords.longitude;
+      
       document.getElementById("long-box").innerHTML ="Long- " + userlongitude.toFixed(2);
       document.getElementById("lat-box").innerHTML ="Lat- "+ userlatitude.toFixed(2);
       $.getJSON("https://api.weatherapi.com/v1/forecast.json?key=e4c52729735f4ab4a4b123828220601&q=" + userlatitude.toFixed(4) +"," + userlongitude.toFixed(4) +  "&days=3&aqi=no&alerts=no", function(data) {
